@@ -1,0 +1,65 @@
+body{
+    margin:0 auto;
+	width:600px;
+}
+
+/*registros*/
+table.registros{
+		border:0;
+		width:100%;
+	}
+table.registros td{
+		border:0;
+	}	
+a.link {
+	color: blue;
+	text-decoration: line;
+	 font: 150% sans-serif;
+
+	}
+table.registros{
+	width:800px;
+	
+}
+a:link {
+    color: green;
+	font: 150% sans-serif;
+
+		}
+table.registros tr.row0{
+		width:900px;
+		background:#fffff;
+		font-size: 18pt; 
+		 font-family: Verdana, Arial, Helvetica, sans-serif; 
+		 text-align: left; 
+	}
+body {
+	margin-right: 45;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: black;
+	background-image: url('fondo.png');
+	background-color: #ffffff;  
+	background-repeat: repeat-x;
+}
+table.registros tr.row1{
+	width:900px;
+		background:#fffff;
+		font-size: 18pt; 
+		font-family: Verdana, Arial, Helvetica, sans-serif; 
+		text-align: left; 
+	}
+#banner{
+	padding-bottom:10px;
+	padding-left: 20px;
+	border-radius: 10px;
+}
+.span12 {
+  width: 900px;
+}
+.redondear{   
+  -o-border-radius: 10px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 3px #000;
+  }
