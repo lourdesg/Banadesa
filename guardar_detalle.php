@@ -1,6 +1,10 @@
 <?php
 //Si se quiere subir una imagen
 if (isset($_POST['submit'])) {
+		$num_paso=$_POST['num_paso'];
+		$nombre_paso=$_POST['nombre_paso'];
+		$descripcion_paso=$_POST['descripcion_paso'];
+		$id_procedimiento=$_POST['id_procedimiento'];
    //Recogemos el archivo enviado por el formulario
    $numero= $_POST['num_paso']; 
    $archivo = $_FILES['imagen']['name'];
@@ -30,23 +34,9 @@ if (isset($_POST['submit'])) {
         }
       }
    }
-}
-
-
-
-
-///////////////////////////////////////////////////////////////
-include("conexion.php");
-if(isset($_POST['num_paso']) && !empty($_POST['num_paso']) &&
- isset($_POST['nombre_paso']) && !empty($_POST['nombre_paso']) &&
- isset($_POST['descripcion_paso']) && !empty($_POST['descripcion_paso']) &&
- isset ($_POST['id_procedimiento'])&& !empty($_POST['id_procedimiento'])) {
-
-// Si entramos es que todo se ha realizado correctamente
-
-$link = mysql_connect("localhost","root","");
+   $link = mysql_connect("localhost","root","");
 mysql_select_db("conocimiento",$link);
-$nuevo_procedimiento=mysql_query("select nombre_paso from detalle where nombre_paso='{$_POST['nombre_paso']}'"); 
+$nuevo_procedimiento=mysql_query("select nombre_paso from detalle where nombre_paso='$nombre_paso'"); 
 
 		if(mysql_num_rows($nuevo_procedimiento)>0) 
 		{ 
@@ -57,7 +47,7 @@ $nuevo_procedimiento=mysql_query("select nombre_paso from detalle where nombre_p
 		}else{
 // Con esta sentencia SQL insertaremos los datos en la base de datos
 mysql_query("INSERT INTO detalle (id_detalle,num_paso,nombre_paso,descripcion_paso,adjuntar, id_procedimiento)
-VALUES ('','{$_POST['num_paso']}','{$_POST['nombre_paso']}','{$_POST['descripcion_paso']}','$archivo','{$_POST['id_procedimiento']}')",$link);
+VALUES ('','$num_paso','$nombre_paso','$descripcion_paso','$archivo','$id_procedimiento')",$link);
 
 // Ahora comprobaremos que todo ha ido correctamente
 $my_error = mysql_error($link);
@@ -79,7 +69,10 @@ echo "Los datos han sido introducidos satisfactoriamente";
 
 
 echo "Error, no ha introducido todos los datos";
-
+   
+   
 }
+
+
 
 ?>	

@@ -107,7 +107,7 @@ $variable=$row['nombre'];
 				</center>
 				<hr>
 				
-				<form method="POST" action="javascript: fn_agregar();" name="detalle" id="detalle" >
+				<form method="POST" onsubmit="javascript: fn_agregar();" name="detalle" id="detalle" >
 				<div style="background:#fffde5;padding:7px;border:#dddddd solid 1px;width:1000px">
 				<center>
 					<h1>Formulario de Ingreso</h1>
@@ -147,6 +147,8 @@ $variable=$row['nombre'];
 								</tr>
 								<tr>
 								<td>
+								<div id="msj">
+								</div>
 									 <td colspan="2"><input name="agregar" type="submit" id="agregar" value="Agregar"  /></td>
 								</td>
 								</tr>
@@ -155,7 +157,29 @@ $variable=$row['nombre'];
 							</td>
 						</tr>
 					</table>
-				
+				<script type="text/javascript">
+						$(document).ready(function(){
+
+						
+							$("#detalle").submit(function(e){
+							    e.preventDefault();  // Evita que envie el formulario normalmente
+							    $.post("guardar_detalle.php", $(this).serializeArray(), function(data){
+							      $("#msj").html(data.datos);
+							      
+							    }, 'json');
+							  });
+
+
+							$('#msj').click(function(){
+								$('#msj').html('');
+							});
+
+						});
+
+					</script>
+				</center>
+				</div><!--cierre del div style-->
+			</form>
 		
 				
 			</form>	

@@ -168,7 +168,7 @@ button.close {
 <!--este es el script para que al momento de guardar no recorgue la pagina-->
 					<script type="text/javascript">
 						$(document).ready(function(){
-							$("#form").submit(function(e){
+							$("#detalle").submit(function(e){
 							    e.preventDefault();  // Evita que envie el formulario normalmente
 							    $.post("detalle.php", $(this).serialize(), function(data){
 							      $("#msj").html(data.datos);
@@ -176,8 +176,6 @@ button.close {
 							      $('#nombre_paso').val('');
 							      $('#descripcion_paso').val('');
 							      $('#imagen').val('');
-							      $('#id_procedimiento').val('');
-								 $('#resultado1').val('');
 							    }, 'json');
 							  });
 

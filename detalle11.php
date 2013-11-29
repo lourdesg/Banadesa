@@ -58,7 +58,7 @@ $variable=$row['nombre'];
 			<hr>
 			</center>
 			
-			<form method="POST" id="form" enctype="multipart/form-data" >
+			<form method="POST" id="form" onsubmit="javascript: fn_agregar();" enctype="multipart/form-data" >
 				<div style="background:#fffde5;padding:7px;border:#dddddd solid 1px;">
 				<center>
 					<h1>Formulario de Ingreso</h1>

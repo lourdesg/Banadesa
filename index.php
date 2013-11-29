@@ -126,18 +126,20 @@
 			
 			<?php
 			if ($_SERVER['REQUEST_METHOD']=='POST') { // ¿Nos mandan datos por el formulario?
-				include('php_lib/config.ini.php'); //incluimos configuración
-				include('php_lib/login.class.php'); //incluimos las funciones
-				$Login=new Login();
-				//si hace falta cambiamos las propiedades tabla, campo_usuario, campo_contraseña, metodo_encriptacion
+					include('php_lib/config.ini.php'); //incluimos configuración
+					include('php_lib/login.class.php'); //incluimos las funciones
+					$Login=new Login();
+					//si hace falta cambiamos las propiedades tabla, campo_usuario, campo_contraseña, metodo_encriptacion
 
-				//verificamos el usuario y contraseña mandados
-				if ($Login->login($_POST['usuario'],$_POST['password'])) {
+					//verificamos el usuario y contraseña mandados
+					if ($Login->login($_POST['usuario'],$_POST['password'])) {
 					require("pagina-acceso-restringido.php");	
+				
 				} else {
 				
 					echo 'Contraseña o Nombre de usuario Incorrecto.';
-						}
+					
+				}	
 			} //fin if post
 			if (isset($_POST['iniciar'])) {
 				require("login.php");

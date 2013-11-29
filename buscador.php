@@ -84,10 +84,10 @@ $query = mysql_query($sqlStr.$limit, $link);
 			echo "\t<table  class=\"registros\" >\n";
 			$r=0;
 			while($row = mysql_fetch_array($query)){
-          echo "\t\t<tr class=\"row$r\"><td><a  link href = 'comentario.php'id={$row['id_procedimiento']}\" target=\"_blank\">".htmlentities($row['nombre'])."</a></td></tr>\n";
-          echo "\t\t<tr class=\"row$r\"><td><a\" target=\"_blank\">".htmlentities($row['descripcion'])."</a></td></tr>\n";
-         echo "\t\t<tr class=\"row$r\"><td><a \" target=\"_blank\">".htmlentities($row['visita'])."</a></td></tr>\n";
-   		  if($r%2==0)++$r;else--$r;
+				echo "\t\t<tr class=\"row$r\"><td><a  link href = 'detalleDeBusqueda.php?id={$row['id_procedimiento']}'>".htmlentities($row['nombre'])."</a></td></tr>\n";
+				echo "\t\t<tr class=\"row$r\"><td><a {$row['id_procedimiento']}\" target=\"_blank\">".htmlentities($row['descripcion'])."</a></td></tr>\n";
+				echo "\t\t<tr><td><small style='color:red;'>visitas</small><a{$row['id_procedimiento']}\" target=\"_blank\">".htmlentities($row['visita'])."</a></td></tr>\n";
+			if($r%2==0)++$r;else--$r;
         }
 			echo "\t</table>\n";
 			$p->show();
